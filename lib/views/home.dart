@@ -13,10 +13,11 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
+            // ignore: prefer_const_literals_to_create_immutables
             children: [
               // Icon(Icons.restaurant_menu),
-              Image(image: AssetImage('assets/images/4.png'), height: 50),
-              SizedBox(width: 10),
+              const Image(image: AssetImage('assets/images/4.png'), height: 50),
+              const SizedBox(width: 10),
               // Text('Amigos de Patas'),
             ],
           ),
@@ -26,13 +27,13 @@ class _HomePageState extends State<HomePage> {
           age: '2 anos',
           selectedFile:
               'https://www.petz.com.br/blog/wp-content/uploads/2021/11/enxoval-para-gato-Copia.jpg',
-          creator: "",
-          description: "",
-          localization: "",
-          owner: "",
-          phoneNumber: "",
+          creator: "Netson",
+          description: "Patrick",
+          localization: "São Paulo, SP",
+          owner: "Netson",
+          phoneNumber: "(11)95934-5354",
           createdAt: DateTime(1),
-          race: "",
+          race: "Gato",
         ));
   }
 }

@@ -27,7 +27,7 @@ class PostCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
       width: MediaQuery.of(context).size.width,
       height: 180,
       decoration: BoxDecoration(
@@ -36,7 +36,7 @@ class PostCard extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.6),
-            offset: Offset(
+            offset: const Offset(
               0.0,
               10.0,
             ),
@@ -57,11 +57,12 @@ class PostCard extends StatelessWidget {
       child: Stack(
         children: [
           Align(
+            // ignore: sort_child_properties_last
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5.0),
+              padding: const EdgeInsets.symmetric(horizontal: 5.0),
               child: Text(
                 name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 19,
                 ),
                 overflow: TextOverflow.ellipsis,
@@ -72,43 +73,75 @@ class PostCard extends StatelessWidget {
             alignment: Alignment.center,
           ),
           Align(
+            // ignore: sort_child_properties_last
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  padding: EdgeInsets.all(5),
-                  margin: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(5),
+                  margin: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.4),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
                     children: [
-                      // Icon(
-                      //   Icons.star,
-                      //   color: Colors.yellow,
-                      //   size: 18,
-                      // ),
-                      // SizedBox(width: 7),
-                      // Text(rating),
+                      const Icon(
+                        Icons.person,
+                        // ignore: use_full_hex_values_for_flutter_colors
+                        color: Color(0xffb38b6ff),
+                        size: 18,
+                      ),
+                      const SizedBox(width: 7),
+                      Text(owner),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            alignment: Alignment.topLeft,
+          ),
+          Align(
+            // ignore: sort_child_properties_last
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(5),
+                  margin: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.4),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.location_on,
+                        // ignore: use_full_hex_values_for_flutter_colors
+                        color: Color(0xffb38b6ff),
+                        size: 18,
+                      ),
+                      const SizedBox(width: 7),
+                      Text(localization),
                     ],
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.all(5),
-                  margin: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(5),
+                  margin: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.4),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.schedule,
-                        color: Colors.yellow,
+                        // ignore: use_full_hex_values_for_flutter_colors
+                        color: Color(0xffb38b6ff),
                         size: 18,
                       ),
-                      SizedBox(width: 7),
+                      const SizedBox(width: 7),
                       Text(age),
                     ],
                   ),
