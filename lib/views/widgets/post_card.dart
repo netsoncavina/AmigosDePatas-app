@@ -1,31 +1,42 @@
+import 'dart:ffi';
+import 'dart:convert';
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 
 class PostCard extends StatelessWidget {
-  final String name;
-  final String race;
-  final String age;
-  final String creator;
-  final String owner;
-  final String phoneNumber;
-  final String localization;
-  final String description;
-  final String selectedFile;
-  final DateTime createdAt;
+  var name;
+  var race;
+  var age;
+  var creator;
+  var owner;
+  var phoneNumber;
+  var localization;
+  var description;
+  var selectedFile;
+  var createdAt;
 
   PostCard({
-    required this.name,
-    required this.race,
-    required this.age,
-    required this.creator,
-    required this.owner,
-    required this.phoneNumber,
-    required this.localization,
-    required this.description,
-    required this.selectedFile,
-    required this.createdAt,
+    this.name,
+    this.race,
+    this.age,
+    this.creator,
+    this.owner,
+    this.phoneNumber,
+    this.localization,
+    this.description,
+    this.selectedFile,
+    this.createdAt,
   });
+
+  Image _displayImageMemory() {
+    String base64Image = selectedFile;
+    Uint8List bytes = base64Decode(base64Image);
+    return Image.memory(bytes);
+  }
+
   @override
   Widget build(BuildContext context) {
+    var imageURL = base64Decode(selectedFile.substring(22));
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
       width: MediaQuery.of(context).size.width,
@@ -49,8 +60,7 @@ class PostCard extends StatelessWidget {
             Colors.black.withOpacity(0.35),
             BlendMode.multiply,
           ),
-          image: NetworkImage(selectedFile),
-          // image: AssetImage(thumbnailUrl),
+          image: MemoryImage(imageURL),
           fit: BoxFit.cover,
         ),
       ),
@@ -93,7 +103,7 @@ class PostCard extends StatelessWidget {
                         size: 18,
                       ),
                       const SizedBox(width: 7),
-                      Text(owner),
+                      Text(creator),
                     ],
                   ),
                 ),
@@ -142,7 +152,7 @@ class PostCard extends StatelessWidget {
                         size: 18,
                       ),
                       const SizedBox(width: 7),
-                      Text(age),
+                      Text(age > 1 ? '$age anos' : '$age ano'),
                     ],
                   ),
                 )

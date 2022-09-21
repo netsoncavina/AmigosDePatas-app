@@ -14,8 +14,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         primaryColor: Colors.white,
+        // ignore: prefer_const_constructors
         textTheme: TextTheme(
-          bodyText2: TextStyle(color: Colors.white),
+          bodyText2: const TextStyle(color: Colors.white),
         ),
       ),
       home: HomePage(),

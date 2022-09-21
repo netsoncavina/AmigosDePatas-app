@@ -1,42 +1,44 @@
 // ignore_for_file: empty_constructor_bodies
 
+import 'dart:ffi';
+
 class Post {
-  final String name;
-  final String race;
-  final String age;
-  final String creator;
-  final String owner;
-  final String phoneNumber;
-  final String localization;
-  final String description;
-  final String selectedFile;
-  final DateTime createdAt;
+  var name;
+  var race;
+  var age;
+  var creator;
+  var owner;
+  var phoneNumber;
+  var localization;
+  var description;
+  var selectedFile;
+  var createdAt;
 
   Post({
-    required this.name,
-    required this.race,
-    required this.age,
-    required this.creator,
-    required this.owner,
-    required this.phoneNumber,
-    required this.localization,
-    required this.description,
-    required this.selectedFile,
-    required this.createdAt,
+    this.name,
+    this.race,
+    this.age,
+    this.creator,
+    this.owner,
+    this.phoneNumber,
+    this.localization,
+    this.description,
+    this.selectedFile,
+    this.createdAt,
   });
 
   factory Post.fromJson(dynamic json) {
     return Post(
-        name: json['name'] as String,
-        race: json['race'] as String,
-        age: json['age'] as String,
-        creator: json['creator'] as String,
-        owner: json['owner'] as String,
-        phoneNumber: json['phoneNumber'] as String,
-        localization: json['localization'] as String,
-        description: json['description'] as String,
-        selectedFile: json['selectedFile'] as String,
-        createdAt: json['createdAt'] as DateTime);
+        name: json['name'],
+        race: json['race'],
+        age: json['age'],
+        creator: json['creator'],
+        owner: json['owner'],
+        phoneNumber: json['phoneNumber'],
+        localization: json['localization'],
+        description: json['description'],
+        selectedFile: json['selectedFile'],
+        createdAt: json['createdAt']);
   }
 
   static List<Post> postFromSnapshot(List snapshot) {
