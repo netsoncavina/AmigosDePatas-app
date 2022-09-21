@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'package:image/image.dart' as ImageProcess;
-import 'dart:typed_data';
 import 'package:amigos_de_patas/views/widgets/post_card.dart';
 import 'package:amigos_de_patas/models/post.api.dart';
 import 'package:amigos_de_patas/models/post.dart';
@@ -43,25 +40,33 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        body: _isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : ListView.builder(
-                itemCount: _posts.length,
-                itemBuilder: (context, index) {
-                  return PostCard(
-                    name: _posts[index].name,
-                    race: _posts[index].race,
-                    age: _posts[index].age,
-                    creator: _posts[index].creator,
-                    owner: _posts[index].owner,
-                    phoneNumber: _posts[index].phoneNumber,
-                    localization: _posts[index].localization,
-                    description: _posts[index].description,
-                    selectedFile: _posts[index].selectedFile,
-                    createdAt: _posts[index].createdAt,
-                  );
-                },
-              ));
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/images/background.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: _isLoading
+              ? const Center(child: CircularProgressIndicator())
+              : ListView.builder(
+                  itemCount: _posts.length,
+                  itemBuilder: (context, index) {
+                    return PostCard(
+                      name: _posts[index].name,
+                      race: _posts[index].race,
+                      age: _posts[index].age,
+                      creator: _posts[index].creator,
+                      owner: _posts[index].owner,
+                      phoneNumber: _posts[index].phoneNumber,
+                      localization: _posts[index].localization,
+                      description: _posts[index].description,
+                      selectedFile: _posts[index].selectedFile,
+                      createdAt: _posts[index].createdAt,
+                    );
+                  },
+                ),
+        ));
   }
 }
 
